@@ -3,15 +3,7 @@ export type Init<T> = Omit<RequestInit, "body" | "method"> & {
 };
 
 export const fetcher = async <T extends object>(
-  method:
-    | "GET"
-    | "POST"
-    | "PUT"
-    | "PATCH"
-    | "DELETE"
-    | "HEAD"
-    | "OPTIONS"
-    | undefined,
+  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE" | "HEAD" | "OPTIONS",
   path: RequestInfo | URL,
   { body, headers, ...restInit }: Init<T> = {},
 ) => {

@@ -1,8 +1,13 @@
+import { CheckError } from "@/features/error/components/CheckError";
 import { getPostsPageData } from "@/features/posts/api/getPostsPageData";
 import { Posts } from "@/features/posts/components/Posts";
 
 export default async function PostsPage() {
-  const posts = await getPostsPageData();
+  const res = await getPostsPageData();
 
-  return <Posts posts={posts} />;
+  if (res?.ok) {
+    return <CheckError status={res?.status} />;
+  } else {
+    return <Posts />;
+  }
 }

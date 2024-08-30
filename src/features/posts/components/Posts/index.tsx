@@ -1,14 +1,10 @@
-import { Post } from "@/services/backend/posts";
+import { POSTS } from "@/tests/mocks/posts";
 
-type Props = {
-  posts: Post[];
-};
-
-export const Posts = ({ posts }: Props) => {
+export const Posts = () => {
   return (
     <div>
       <div>投稿一覧</div>
-      {posts.map((post, index) => (
+      {POSTS.map((post, index) => (
         <div key={index}>
           <div>{post.name}</div>
           <div>{post.text}</div>

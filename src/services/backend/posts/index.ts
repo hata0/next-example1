@@ -6,6 +6,6 @@ export * from "./type";
 export const createPath = () => `${BACKEND_URL}/posts`;
 
 export const getPosts = () =>
-  fetcher(undefined, createPath(), {
+  fetcher("GET", createPath(), {
     cache: "no-store",
   });
