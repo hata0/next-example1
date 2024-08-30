@@ -1,3 +1,5 @@
+import { Top } from "@/features/top/components/Top";
+
 export default function TopPage() {
-  return <div>hello</div>;
+  return <Top />;
 }
