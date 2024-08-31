@@ -1,5 +1,5 @@
 export class HttpError extends Error {
   constructor(public readonly status?: number) {
-    super();
+    super(`HTTP response status code: ${status}`);
   }
 }

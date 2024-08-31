@@ -1,5 +1,5 @@
 "use client";
 
-import { Error } from "@/features/error/components/Error";
+import { CheckError } from "@/features/error/components/CheckError";
 
-export default Error;
+export default CheckError;

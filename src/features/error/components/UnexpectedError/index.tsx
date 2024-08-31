@@ -8,7 +8,7 @@ type Props = {
   reset: () => void;
 };
 
-export const Error = ({ reset }: Props) => {
+export const UnexpectedError = ({ reset }: Props) => {
   return (
     <div className="flex h-screen flex-col items-center justify-center space-y-8">
       <div className="flex flex-col items-center justify-center">
