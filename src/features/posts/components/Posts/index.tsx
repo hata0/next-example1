@@ -4,7 +4,9 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { postsOptions } from "../../api/posts-options";
 
 export const Posts = () => {
-  const { data: posts } = useSuspenseQuery(postsOptions);
+  const {
+    data: { posts },
+  } = useSuspenseQuery(postsOptions);
 
   return (
     <div>
