@@ -1,13 +1,15 @@
-import { CheckError } from "@/features/error/components/CheckError";
-import { getPostsPageData } from "@/features/posts/api/getPostsPageData";
+import { postsOptions } from "@/features/posts/api/posts-options";
 import { Posts } from "@/features/posts/components/Posts";
+import { getQueryClient } from "@/lib/tanstack-query/getQueryClient";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
 export default async function PostsPage() {
-  const res = await getPostsPageData();
+  const client = getQueryClient();
+  void client.prefetchQuery(postsOptions);
 
-  if (res?.ok) {
-    return <CheckError status={res?.status} />;
-  } else {
-    return <Posts />;
-  }
+  return (
+    <HydrationBoundary state={dehydrate(client)}>
+      <Posts />
+    </HydrationBoundary>
+  );
 }
