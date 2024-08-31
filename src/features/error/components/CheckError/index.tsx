@@ -1,9 +1,10 @@
 "use client";
 
-import { HttpError } from "@/utils/http-error";
 import { Custom401 } from "../401";
 import { Custom500 } from "../500";
 import { UnexpectedError } from "../UnexpectedError";
+
+import { HttpError } from "@/utils/http-error";
 
 type Props = {
   error: Error | HttpError;

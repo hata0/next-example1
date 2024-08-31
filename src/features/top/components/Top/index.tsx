@@ -4,7 +4,7 @@ export const Top = () => {
   return (
     <div>
       <div>hello</div>
-      <Link href="/posts" className="text-blue-500">
+      <Link className="text-blue-500" href="/posts">
         投稿一覧
       </Link>
     </div>

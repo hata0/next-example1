@@ -1,7 +1,8 @@
 "use client";
 
-import { getPostsQueryHandler } from "@/services/backend/posts/query";
 import { useSuspenseQuery } from "@tanstack/react-query";
+
+import { getPostsQueryHandler } from "@/services/backend/posts/query";
 
 export const Posts = () => {
   const {

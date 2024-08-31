@@ -2,11 +2,11 @@ import { Post } from "@/services/backend/posts";
 
 export const POSTS: Post[] = [
   {
-    text: "hello",
     name: "foo",
+    text: "hello",
   },
   {
-    text: "こんにちは",
     name: "bar",
+    text: "こんにちは",
   },
 ];

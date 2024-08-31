@@ -23,5 +23,6 @@ export const fetcher = async <TBody extends object>(
     throw new HttpError(res.status);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return await res.json();
 };

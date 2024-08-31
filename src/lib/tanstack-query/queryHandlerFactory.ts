@@ -13,16 +13,16 @@ type HandlerProps<TQueryFnData, TData> = Omit<
 };
 
 export const queryHandlerFactory = <TQueryFnData = unknown>({
-  queryKey: origin,
   queryFn,
+  queryKey: origin,
 }: Props<TQueryFnData>) => {
   return <TData = TQueryFnData>({
     queryKey: params,
     ...args
   }: HandlerProps<TQueryFnData, TData> = {}) => {
     return queryOptions({
-      queryKey: params ? [...origin, ...params] : origin,
       queryFn: queryFn,
+      queryKey: params ? [...origin, ...params] : origin,
       ...args,
     });
   };
