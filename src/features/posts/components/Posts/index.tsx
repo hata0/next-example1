@@ -15,7 +15,8 @@ export const Posts = () => {
       {posts.map((post, index) => (
         <div key={index}>
           <div>{post.name}</div>
-          <div>{post.text}</div>
+          <div>{post.title}</div>
+          <div>{post.body}</div>
         </div>
       ))}
     </div>

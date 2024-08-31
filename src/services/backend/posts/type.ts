@@ -1,6 +1,7 @@
 export type Post = {
-  text: string;
+  title: string;
   name: string;
+  body: string;
 };
 
 export type PostsData = {
