@@ -1,3 +1,5 @@
+import { HttpResponse } from "msw";
+
 import { Posts } from ".";
 
 import { getPostsHandler } from "@/services/backend/posts/mock";
@@ -8,6 +10,20 @@ type T = typeof Posts;
 type Story = StoryObj<T>;
 
 export const Default: Story = {};
+
+export const Empty: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        getPostsHandler({
+          resolver: () => {
+            return HttpResponse.json([]);
+          },
+        }),
+      ],
+    },
+  },
+};
 
 export default {
   component: Posts,
