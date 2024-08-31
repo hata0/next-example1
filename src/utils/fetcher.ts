@@ -1,28 +1,27 @@
-export type Init<T> = Omit<RequestInit, "body" | "method"> & {
-  body?: T;
+import { HttpError } from "./http-error";
+
+export type Init<TBody> = Omit<RequestInit, "body" | "method"> & {
+  body?: TBody;
 };
 
-export const fetcher = async <T extends object>(
+export const fetcher = async <TBody extends object>(
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE" | "HEAD" | "OPTIONS",
   path: RequestInfo | URL,
-  { body, headers, ...restInit }: Init<T> = {},
+  { body, headers, ...restInit }: Init<TBody> = {},
 ) => {
-  let res;
-  let error;
+  const res = await fetch(path, {
+    ...restInit,
+    body: body && JSON.stringify(body),
+    headers: {
+      "Content-Type": "application/json",
+      ...headers,
+    },
+    method,
+  });
 
-  try {
-    res = await fetch(path, {
-      ...restInit,
-      body: body && JSON.stringify(body),
-      headers: {
-        "Content-Type": "application/json",
-        ...headers,
-      },
-      method,
-    });
-  } catch (e) {
-    error = e;
+  if (!res.ok) {
+    throw new HttpError(res.status);
   }
 
-  return { error, res };
+  return await res.json();
 };
