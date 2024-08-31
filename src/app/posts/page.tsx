@@ -1,7 +1,7 @@
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
 import { Posts } from "@/features/posts/components/Posts";
-import { getQueryClient } from "@/lib/tanstack-query/getQueryClient";
+import { getQueryClient } from "@/libs/tanstack-query/getQueryClient";
 import { getPostsQueryHandler } from "@/services/backend/posts/query";
 
 export default function PostsPage() {

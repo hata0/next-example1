@@ -3,7 +3,7 @@
 import { QueryClientProvider } from "@tanstack/react-query";
 import { PropsWithChildren } from "react";
 
-import { getQueryClient } from "@/lib/tanstack-query/getQueryClient";
+import { getQueryClient } from "@/libs/tanstack-query/getQueryClient";
 
 export const QueryProvider = ({ children }: PropsWithChildren) => {
   const queryClient = getQueryClient();
