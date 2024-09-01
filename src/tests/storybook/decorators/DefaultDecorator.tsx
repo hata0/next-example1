@@ -5,6 +5,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useEffect } from "react";
 import { Args, PartialStoryFn } from "storybook/internal/types";
 
@@ -19,6 +20,7 @@ export const DefaultDecorator = (Story: PartialStoryFn<ReactRenderer, Args>) => 
   return (
     <QueryClientProvider client={client}>
       <Story />
+      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 };
